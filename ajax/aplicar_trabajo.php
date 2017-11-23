@@ -85,7 +85,7 @@ if (version_compare(PHP_VERSION, '5.3.7', '<')) {
                     // if user has been added successfully
                     if ($query_new_user_insert) {
                         $messages[] = "Proyecto ha sido ingresado satisfactoriamente.";
-                        echo $id_empresa;
+                        
 
                     } else {
                         $errors []= "Intente de nuevo.".mysqli_error($con);

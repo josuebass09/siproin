@@ -109,21 +109,21 @@
 					</div>
 
                     <?php if($_SESSION['role']!=1){ ?>
-                    <div class="col-sm-6 col-xs-6 col-md-4 ">
+                    <div class="col-sm-6 col-xs-12 col-md-4 ">
                     	<br>
                     	
 
 
-                    	<button class="btn col-md-12" id="btn-aplicar" style="background-color: #5cb85c!important;color: white;">
+                    	<button class="btn col-xs-12 col-md-12" id="btn-aplicar" style="background-color: #5cb85c!important;color: white; ">
                     	   Aplicar
                     	</button>
 
                     	
                    
                     </div>
-                    <div class="col-sm-6 col-xs-6 col-md-4">
+                    <div class="col-sm-6 col-xs-12 col-md-4">
                     	<br>
-                    	<button class="btn col-md-12" id="btn-deshacer" style="background-color: #d9534f!important; color: white;">
+                    	<button class="btn col-xs-12 col-md-12" id="btn-deshacer" style="background-color: #d9534f!important; color: white;">
                     		Deshacer
                     	</button>
 
@@ -144,7 +144,7 @@
 
 
                 <?php }?>
-                    <div id="estado" class="col-md-8">
+                    <div id="estado" class="col-xs-12 col-md-8">
                     	<?php
             
             $sqlPostulante = "SELECT * FROM Postulados WHERE id_estudiante = '" . $cedula ."' AND id_proyecto ='".$id_proyecto."';";
@@ -161,8 +161,7 @@
             document.getElementById("btn-aplicar").disabled = true;
 			document.getElementById("btn-deshacer").disabled = false;
                 	</script>
-                <br>
-                <br>
+               <br>
                 <div class="alert alert-success" style="text-align: center;" role="alert">
                 	
                      
@@ -183,8 +182,7 @@
 			document.getElementById("btn-deshacer").disabled = false;
                 	</script>
                 <br>
-                <br>
-                <div class="alert alert-danger" style="text-align: center;" role="alert">
+                <div class="alert alert-danger" style="text-align: center; margin-top:10px" role="alert">
                 	
                      
 
@@ -204,9 +202,9 @@
             document.getElementById("btn-aplicar").disabled = true;
 			document.getElementById("btn-deshacer").disabled = false;
                 	</script>
+                
                 <br>
-                <br>
-                <div class="alert alert-warning" style="text-align: center;" role="alert">
+                <div class="alert alert-warning" style="text-align: center;margin-top:10px" role="alert">
                 	
                      
 
