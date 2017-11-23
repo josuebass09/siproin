@@ -12,7 +12,7 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="#">SIPROIN</a>
+      <a class="navbar-brand" href="proyectos.php">SIPROIN</a>
     </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->
@@ -53,8 +53,18 @@
   
   <?php 
     if($_SESSION['role'] == 1){
+             
+             $sql="SELECT count(*) FROM Postulados WHERE id_empresa = '" . $_SESSION['idEmpresa'] ."';";  
+              $result = mysqli_query($con,$sql);
+              $row = mysqli_fetch_array($result);
+              $total = $row[0];
+              
+              
+              
     ?>
-      <li class="<?php if (isset($active_usuarios)){echo $active_usuarios;}?>"><a href="postulados.php"><i  class='glyphicon glyphicons-building'></i>Postulados</a></li>
+
+
+      <li class="<?php if (isset($active_usuarios)){echo $active_usuarios;}?>"><a href="postulados.php" style="font-size:1.3em;" >Postulados<img src="img/notification.png" width="32" height="32" style="margin-left: 10px;"></a></li>
     <?php
     }
     ?>
