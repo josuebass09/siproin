@@ -382,7 +382,7 @@ $( "#editar_producto" ).submit(function( event ) {
 				
 			  },
 			success: function(datos){
-			alert(datos);	
+			
 			document.getElementById("btn-aplicar").disabled = false;
 			document.getElementById("btn-deshacer").disabled = true;
 			//$("#estado").html(datos);

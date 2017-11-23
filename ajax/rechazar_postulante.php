@@ -51,7 +51,7 @@ if (version_compare(PHP_VERSION, '5.3.7', '<')) {
 			$id_proyecto=intval($_POST['id_proyecto']);
              
                 // write new user's data into database
-                  	$sql="UPDATE Postulados SET estado=0 WHERE id_proyecto='".$id_proyecto."'";
+                  	$sql="UPDATE Postulados SET estado=10 WHERE id_proyecto='".$id_proyecto."'";
 		            $query_update = mysqli_query($con,$sql);
                  
                     // if user has been added successfully
