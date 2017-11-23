@@ -56,6 +56,7 @@
 		$id_proyecto=intval($_GET['id']);
 		$query=mysqli_query($con,"select * from Proyectos where id_proyecto='$id_proyecto'");
 		$row=mysqli_fetch_array($query);
+
 		
 	} else {
 		die("Producto no existe");
@@ -90,13 +91,13 @@
 			  
               <div class="col-sm-4 text-left">
                 <div class="row margin-btm-20">
-                    <div class="col-sm-12">
+                    <div class="col-xs-12 col-sm-12">
                       <span class="item-title"><?php echo $row['descripcion'];?></span>
                     </div>
                  
                    
                   
-					<div class="col-sm-12">
+					<div class="col-xs-12 col-sm-12">
                       <span class="current-stock">Vacantes disponibles:</span>
                       <span class="item-price"><?php echo $row['vacantes'];?></span>
                     </div>
@@ -107,11 +108,17 @@
                     <div class="col-sm-12 margin-btm-10">
 					</div>
 
+                    <?php if($_SESSION['role']!=1){ ?>
                     <div class="col-sm-6 col-xs-6 col-md-4 ">
                     	<br>
+                    	
+
+
                     	<button class="btn col-md-12" id="btn-aplicar" style="background-color: #5cb85c!important;color: white;">
                     	   Aplicar
                     	</button>
+
+                    	
                    
                     </div>
                     <div class="col-sm-6 col-xs-6 col-md-4">
@@ -119,19 +126,35 @@
                     	<button class="btn col-md-12" id="btn-deshacer" style="background-color: #d9534f!important; color: white;">
                     		Deshacer
                     	</button>
+
                     	<script>document.getElementById("btn-deshacer").disabled = true;</script>
                       
                     </div>
+                    <?php  }else{?>
+                
+                <div class="col-sm-9 col-xs-12 col-md-9">
+                    	<br>
+                    	<button class="btn col-xs-12 col-md-12" id="btn-deshacer" style="background-color: #d9534f!important; color: white;">
+                    		Deshacer Proyecto
+                    	</button>
+
+                    	
+                      
+                    </div>
+
+
+                <?php }?>
                     <div id="estado" class="col-md-8">
                     	<?php
             
-            $sqlPostulante = "SELECT estado FROM Postulados WHERE id_estudiante = '" . $cedula ."' AND id_proyecto ='".$id_proyecto."';";
+            $sqlPostulante = "SELECT * FROM Postulados WHERE id_estudiante = '" . $cedula ."' AND id_proyecto ='".$id_proyecto."';";
               $queryPostulante=mysqli_query($con, $sqlPostulante);
               $rowPostulante=mysqli_fetch_array($queryPostulante);
               $estado=$rowPostulante['estado'];
+              $id_empresa=$row['id_empresa'];
          
               //$verificaRegistro=mysqli_num_rows($ejecuta);
-                      if ($vestado==1){
+                      if ($estado==1){
                 
                 ?>
                 <script>
@@ -152,7 +175,7 @@
             }
              ?>
 <?php
-               if ($estado==0){
+               if ($estado==10){
                 
                 ?>
                 <script>
@@ -308,6 +331,7 @@ $( "#editar_producto" ).submit(function( event ) {
 
      var cedula=<?php echo $cedula ?>;
    var id_proyecto=<?php echo $id_proyecto?>;
+   var id_empresa=<?php echo $id_empresa?>;
    
 
    $("#btn-aplicar").click(function()
@@ -317,7 +341,7 @@ $( "#editar_producto" ).submit(function( event ) {
 
 
   var parametros = {"cedula": cedula,
-                  "id_proyecto": id_proyecto,"estado":2 };
+                  "id_proyecto": id_proyecto,"estado":2 ,"id_empresa":id_empresa};
 	 $.ajax({
 			type: "POST",
 			url: "ajax/aplicar_trabajo.php",

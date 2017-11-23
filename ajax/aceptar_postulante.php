@@ -53,6 +53,19 @@ if (version_compare(PHP_VERSION, '5.3.7', '<')) {
                 // write new user's data into database
                   	$sql="UPDATE Postulados SET estado=1 WHERE id_proyecto='".$id_proyecto."'";
 		            $query_update = mysqli_query($con,$sql);
+
+
+
+
+                   $to      = 'josuebass09@gmail.com';
+                   $subject = 'Prueba';
+                   $message = 'Esto es una prueba';
+                   $headers = 'From: webmaster@example.com' . "\r\n" .
+                   'Reply-To: webmaster@example.com' . "\r\n" .
+                   'X-Mailer: PHP/' . phpversion();
+
+                   mail($to, $subject, $message, $headers);
+                   echo "Correo enviado!";
                  
                     // if user has been added successfully
                     if ($query_update) {

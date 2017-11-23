@@ -53,6 +53,8 @@ if (version_compare(PHP_VERSION, '5.3.7', '<')) {
 				
 				$id_proyecto=intval($_POST['id_proyecto']);
                 $estado=intval($_POST['estado']);
+                $id_empresa=intval($_POST['id_empresa']);
+
              
               
 
@@ -64,8 +66,8 @@ if (version_compare(PHP_VERSION, '5.3.7', '<')) {
        
 
                 // write new user's data into database
-                    $sql = "INSERT INTO Postulados(id_proyecto,id_estudiante,estado)
-                            VALUES('".$id_proyecto."','".$cedula."','".$estado."');";
+                    $sql = "INSERT INTO Postulados(id_proyecto,id_estudiante,estado,id_empresa)
+                            VALUES('".$id_proyecto."','".$cedula."','".$estado."','".$id_empresa."');";
                     $query_new_user_insert = mysqli_query($con,$sql);
 
 
@@ -83,6 +85,7 @@ if (version_compare(PHP_VERSION, '5.3.7', '<')) {
                     // if user has been added successfully
                     if ($query_new_user_insert) {
                         $messages[] = "Proyecto ha sido ingresado satisfactoriamente.";
+                        echo $id_empresa;
 
                     } else {
                         $errors []= "Intente de nuevo.".mysqli_error($con);

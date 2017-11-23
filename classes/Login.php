@@ -159,7 +159,7 @@ class Login
                     if ($_POST['contrasena'] == $result_row->contrasena) {
 
                         // write user data into PHP SESSION (a file on your server)
-                        echo "Holi";;
+                        
                         $_SESSION['email'] = $result_row->email;
                         $_SESSION['contrasena'] = $result_row->contrasena;
                         $_SESSION['idEmpresa'] = $result_row->id_empresa;

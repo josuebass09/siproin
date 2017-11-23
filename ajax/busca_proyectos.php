@@ -32,6 +32,85 @@
 		
 		
 	}
+
+    if($action == 'empresa'){
+		// escaping, additionally removing everything that could be (html/javascript-) code
+         
+         $id_empresa=$_SESSION['idEmpresa'];
+		 
+		 $aColumns = array('id_proyecto', 'descripcion');//Columnas de busqueda
+		 $sTable = "Proyectos";
+	
+		
+	
+		$sWhere.=" order by id_proyecto desc";
+		include 'pagination.php'; //include pagination file
+		//pagination variables
+		$page = (isset($_REQUEST['page']) && !empty($_REQUEST['page']))?$_REQUEST['page']:1;
+		$per_page = 18; //how much records you want to show
+		$adjacents  = 4; //gap between pages after number of adjacents
+		$offset = ($page - 1) * $per_page;
+		//Count the total number of row in your table*/
+		$count_query   = mysqli_query($con, "SELECT count(*) AS numrows FROM $sTable  $sWhere");
+		$row= mysqli_fetch_array($count_query);
+		$numrows = $row['numrows'];
+		$total_pages = ceil($numrows/$per_page);
+		$reload = './proyectos.php';
+		//main query to fetch the data
+		$sql="SELECT * FROM  Proyectos WHERE id_empresa='".$id_empresa."';";
+		$query = mysqli_query($con, $sql);
+		//loop through fetched data
+		if ($numrows>0){
+			
+			?>
+			  
+				<?php
+				$nums=1;
+				$cuenta=0;
+				$array = array("img/php.png", "img/net.png", "img/wordpress.png");
+				while ($row=mysqli_fetch_array($query)){
+						$id_contrato=$row['id_contrato'];
+						$descripcion=$row['descripcion'];
+						$id_proyecto=$row['id_proyecto'];
+						
+					?>
+					
+					<div class="col-lg-2 col-md-2 col-sm-6 col-xs-12 thumb text-center ng-scope" ng-repeat="item in records">
+						  <a class="thumbnail" href="proyectoSeleccionado.php?id=<?php echo $id_proyecto;?>">
+							  <span title="Current quantity" class="badge badge-default stock-counter ng-binding"><?php echo number_format($stock,2); ?></span>
+							  <span title="Low stock" class="low-stock-alert ng-hide" ng-show="item.current_quantity <= item.low_stock_threshold"><i class="fa fa-exclamation-triangle"></i></span>
+							  <img class="img-responsive" src="<?php echo $array[$cuenta]?>" alt="<?php echo $nombre_producto;?>">
+						  </a>
+						  <span class="thumb-name"><strong><?php echo $id_contrato;?></strong></span>
+						  <span class="thumb-code ng-binding"><?php echo $descripcion;?></span>
+					</div>
+					<?php
+					if ($nums%6==0){
+						echo "<div class='clearfix'></div>";
+					}
+					$nums++;
+					$cuenta++;
+				}
+				?>
+				<div class="clearfix"></div>
+				<div class='row text-center'>
+					<div ><?php
+					 echo paginate($reload, $page, $total_pages, $adjacents);
+					?></div>
+				</div>
+			
+			<?php
+		}
+	}
+
+
+
+
+
+
+
+
+
 	if($action == 'select'){
 		// escaping, additionally removing everything that could be (html/javascript-) code
          $q = mysqli_real_escape_string($con,(strip_tags($_REQUEST['busqueda'], ENT_QUOTES)));

@@ -29,7 +29,7 @@ include('is_logged.php');//Archivo verifica que el usario que intenta acceder a 
 		$fecha=date("Y-m-d H:i:s");
 		
 		
-		$sql="INSERT INTO Proyectos (id_proyecto, id_contrato,id_empresa,descripcion,fecha) VALUES ('$id_proyecto','$id_contrato','$id_empresa','$descripcion',$fecha)";
+		$sql="INSERT INTO Proyectos (id_proyecto, id_contrato,id_empresa,descripcion,fecha) VALUES ('$id_proyecto','$id_contrato','$id_empresa','$dateescripcion',$fecha)";
 		$query_new_insert = mysqli_query($con,$sql);
 			if ($query_new_insert){
 				$messages[] = "Producto ha sido ingresado satisfactoriamente.";

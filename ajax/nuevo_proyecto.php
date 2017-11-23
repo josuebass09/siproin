@@ -27,7 +27,7 @@ include('is_logged.php');//Archivo verifica que el usario que intenta acceder a 
 
 
 		$id_contrato=$_POST["id_contrato"];
-		$id_empresa=40;
+		$id_empresa=$_SESSION["idEmpresa"];
 		$descripcion=$_POST["descripcion"];
 		$vacantes=intval($_POST['vacantes']);
 		
