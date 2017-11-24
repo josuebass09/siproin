@@ -1,9 +1,8 @@
+<!--/* Siproin (v0.4) 
+Licensed under MIT (https://github.com/josuebass09/siproin/blob/master/LICENSE)
+ */ -->
 <?php
-	/*-------------------------
-	Autor: Obed Alvarado
-	Web: obedalvarado.pw
-	Mail: info@obedalvarado.pw
-	---------------------------*/
+
 	session_start();
 	if (!isset($_SESSION['user_login_status']) AND $_SESSION['user_login_status'] != 1) {
         header("location: login.php");

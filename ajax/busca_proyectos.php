@@ -1,5 +1,7 @@
 <?php
-
+/* Siproin (v0.4) 
+Licensed under MIT (https://github.com/josuebass09/siproin/blob/master/LICENSE)
+ */
 
 	include('is_logged.php');//Archivo verifica que el usario que intenta acceder a la URL esta logueado
 	/* Connect To Database*/

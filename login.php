@@ -1,3 +1,6 @@
+<!--/* Siproin (v0.4) 
+Licensed under MIT (https://github.com/josuebass09/siproin/blob/master/LICENSE)
+ */ -->
 <?php
 // checking for minimum PHP version
 if (version_compare(PHP_VERSION, '5.3.7', '<')) {

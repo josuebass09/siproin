@@ -1,3 +1,6 @@
+<!--/* Siproin (v0.4) 
+Licensed under MIT (https://github.com/josuebass09/siproin/blob/master/LICENSE)
+ */ -->
 <?php
 $target_path = "imagenes/";
 $target_path = $target_path . basename( $_FILES['uploadedfile']['name']);

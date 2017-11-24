@@ -1,4 +1,7 @@
 <?php
+/* Siproin (v0.4) 
+Licensed under MIT (https://github.com/josuebass09/siproin/blob/master/LICENSE)
+ */
 // checking for minimum PHP version
 if (version_compare(PHP_VERSION, '5.3.7', '<')) {
     exit("Sorry, Simple PHP Login does not run on a PHP version smaller than 5.3.7 !");

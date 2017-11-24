@@ -1,3 +1,7 @@
+<!--/* Siproin (v0.4) 
+Licensed under MIT (https://github.com/josuebass09/siproin/blob/master/LICENSE)
+ */ -->
+
 <div class="navbar navbar-default navbar-fixed-bottom" >
     <div class="container">
     <p style="text-align: center; margin-top: 15px; color: white;">SIPROIN @2017</p>

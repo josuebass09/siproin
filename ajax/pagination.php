@@ -1,4 +1,7 @@
 <?php
+/* Siproin (v0.4) 
+Licensed under MIT (https://github.com/josuebass09/siproin/blob/master/LICENSE)
+ */
 function paginate($reload, $page, $tpages, $adjacents) {
 	$prevlabel = "&lsaquo; Prev";
 	$nextlabel = "Next &rsaquo;";
