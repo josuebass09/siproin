@@ -5,6 +5,31 @@ Licensed under MIT (https://github.com/josuebass09/siproin/blob/master/LICENSE)
     if (isset($title))
     {
   ?>
+  <style>
+    
+
+    .notificacion {
+  color: white;
+  display: inline-block; /* Inline elements with width and height. TL;DR they make the icon buttons stack from left-to-right instead of top-to-bottom */
+  position: relative; /* All 'absolute'ly positioned elements are relative to this one */
+  padding: 2px 5px; 
+  margin-top: 7px;
+}
+
+
+.button__badge {
+  background-color: #5fba7d;;
+  border-radius: 2px;
+  color: white;
+ 
+  padding: 1px 3px;
+  font-size: 10px;
+  
+  position: absolute; 
+  top: 0;
+  right: 0;
+}
+  </style>
 <nav class="navbar navbar-default ">
   <div class="container-fluid">
     <!-- Brand and toggle get grouped for better mobile display -->
@@ -67,7 +92,24 @@ Licensed under MIT (https://github.com/josuebass09/siproin/blob/master/LICENSE)
     ?>
 
 
-      <li class="<?php if (isset($active_usuarios)){echo $active_usuarios;}?>"><a href="postulados.php" style="font-size:1.3em;" >Postulados<img src="img/notification.png" width="32" height="32" style="margin-left: 10px;"></a></li>
+       
+      <li><a href="postulados.php" style="font-size:1.3em;" class="col-md-6" >Postulados</a></li>
+       <!--<li style="margin-top: 9px;">
+        <img src="img/notification.png" width="32" height="32"><p style="float: right; background-color: green; color: white; width: 20px;height: 16px; font-size: 10px; text-align: center;"><small>3</small></p>
+      </li>  -->
+      <li>
+        <div class="notificacion">
+          <img src="img/notification.png" width="32" height="32">
+          <span class="button__badge">2</span>
+        </div>
+        
+      </li>
+      
+
+
+
+      
+      
     <?php
     }
     ?>
